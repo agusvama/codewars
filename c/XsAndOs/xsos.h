@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include "character.h"
+#include "../lib/character.h"
 
 int countCharacter(char c, char * str){
   int count = 0;
