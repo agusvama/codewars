@@ -1,6 +1,8 @@
 def tribonacci(a, n):
     if(n == 0):
         return []
+    if(n == 1):
+        return [a[0]]
     else:
         for i in range(1, n - 2):
             a.append(sumLast3(a))

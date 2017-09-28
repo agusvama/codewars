@@ -10,4 +10,5 @@ class TestTribonacci(unittest.TestCase):
         self.assertEqual(Tribonacci.sumLast3([1,2,3,4,5,6]), 15)
 
     def testTribonacci(self):
+        self.assertEqual(Tribonacci.tribonacci([1,1,1], 1), [1])
         self.assertEqual(Tribonacci.tribonacci([1,1,1], 10), [1,1,1,3,5,9,17,31,57,105])
