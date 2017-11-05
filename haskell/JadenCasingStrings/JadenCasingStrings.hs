@@ -1,24 +1,14 @@
 module JadenCasingStrings where
-import Data.Char
+import Data.Char (toUpper)
 
-capitalizeWord word = toUpper(head(word)):tail(word)
+capitalizeWord (w:ord) = toUpper(w):ord
 -- capitalizeWord (x:xs)= toUpper x:xs
 
-wordsOfSentence sentence = words sentence
+wordsOfSentence = words 
 
-capitalizeWordsOfArray array = map capitalizeWord array
+capitalizeWordsOfArray = map capitalizeWord 
 
-arrayToSentence array = recursive array ""
-  where recursive arr output
-          | null arr = init output
-          | otherwise = recursive (tail arr) (output ++ (head arr) ++ " ")
---arrayToSentence array = unwords array
+arrayToSentence = foldl (\x y -> x ++ y ++ " ") ""
 
 toJadenCase :: String -> String
-toJadenCase js = arrayToSentence(
-  capitalizeWordsOfArray(
-    wordsOfSentence(js)))
--- toJadenCase js = arrayToSentence . capitalizeWordsOfArray . wordsOfSentence $ js
--- toJadenCase js = arrayToSentence $ capitalizeWordsOfArray $ wordsOfSentence $ js
-
--- main = putStrLn(toJadenCase("story of my life"))
+toJadenCase = init . arrayToSentence . capitalizeWordsOfArray . wordsOfSentence
