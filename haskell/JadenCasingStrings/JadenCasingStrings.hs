@@ -1,14 +1,7 @@
 module JadenCasingStrings where
 import Data.Char (toUpper)
 
-capitalizeWord (w:ord) = toUpper(w):ord
--- capitalizeWord (x:xs)= toUpper x:xs
-
-wordsOfSentence = words 
-
-capitalizeWordsOfArray = map capitalizeWord 
-
-arrayToSentence = foldl (\x y -> x ++ y ++ " ") ""
+capitalize(w:ord) = toUpper(w):ord
 
 toJadenCase :: String -> String
-toJadenCase = init . arrayToSentence . capitalizeWordsOfArray . wordsOfSentence
+toJadenCase = unwords . map capitalize . words
