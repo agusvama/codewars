@@ -3,5 +3,7 @@ def XO(str)
 end
 
 def character_counter(str, c)
-  str.split('').select{ | ch | ch == c || ch == c.upcase}.length
+  # why is there an str.split here?
+  str.split('').select { |ch| ch == c || ch == c.upcase }.length
+  # got it, it converts a string to a chars array
 end
